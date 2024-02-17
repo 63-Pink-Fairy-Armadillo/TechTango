@@ -4,6 +4,7 @@ const userController = {};
 
 userController.getAllUsers = async (req, res, next) => {
 
+  
 };
 
 /*
@@ -15,7 +16,12 @@ userController.createUser = async (req, res, next) => {
    * destructuring is important for safety here
    */
   const { username, password } = req.body;
-  
+  console.log(`username is: ${username}`);
+  const profile_pic = req.body.profile_pic || 'default';
+  const personal_bios = req.body.personal_bios || '[]';
+  // "[{name: 'Github', bio : 'https://github...'}, {}, {}]"
+  // '[]'
+
   // if format is incorrect return error
   if (!username || !password) {
     return next({
@@ -29,7 +35,8 @@ userController.createUser = async (req, res, next) => {
        * create new user and save it into document
        * password is hashed before saved in userModel.js
        */
-      const newUser = await User.create({username, password});
+      const newUser = new User({ username, password, profile_pic, personal_bios });
+      await newUser.save();
       res.locals.newUser = newUser;
       return next();
     } catch (err) {
@@ -54,6 +61,7 @@ userController.verifyUser = async (req, res, next) => {
    * search user document for user with same username
    */
   const { username, password } = req.body;
+  
   if (!username || !password) {
     return next({
       log: 'Express error handler caught error in userController.verifyUser verifying user function',

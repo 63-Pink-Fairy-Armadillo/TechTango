@@ -3,8 +3,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const userController = require('./controllers/userController');
-const MONGO_URI = 'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(MONGO_URI);
+const MONGO_URL = 'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(MONGO_URL);
 
 const PORT = 3000;
 const app = express();
