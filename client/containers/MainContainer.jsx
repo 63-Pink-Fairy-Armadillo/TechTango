@@ -14,7 +14,7 @@ import React from 'react';
 const MainContainer = () => {
   return (
     <div className='container'>
-      <h1 id='header'>TITLE TEST</h1>
+      <h1 id='header'>Hello World</h1>
     </div>
   );
 };
