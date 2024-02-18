@@ -11,7 +11,7 @@
 
 import React from "react";
 
-// NavBar finished?
+// NavBar just finished now TO DO: Feed Container
 
 const NavBar = () => {
   return (
