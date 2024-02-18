@@ -9,6 +9,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   profile_pic: { type: String, required: true },
   personal_bios: { type: String, required: true },
+  introduction: { type: String }
 });
 
 userSchema.pre('save', function (next) {

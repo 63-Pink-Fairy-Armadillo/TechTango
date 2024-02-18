@@ -3,7 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const userController = require('./controllers/userController');
-const MONGO_URL = 'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URL = 'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/TechTango?retryWrites=true&w=majority';
 mongoose.connect(MONGO_URL);
 
 const PORT = 3000;
