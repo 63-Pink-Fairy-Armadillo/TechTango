@@ -16,8 +16,8 @@ import FeedDisplay from "../components/FeedDisplay.jsx";
 const FeedContainer = () => {
   return (
     <>
-      <div className="feedDisplay">
-        <p>This is FeedConatiner</p>
+      <div className="container-feed">
+        <p>This is FeedConatainer</p>
         <API />
         <FeedDisplay />
       </div>
