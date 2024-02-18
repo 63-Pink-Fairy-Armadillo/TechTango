@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
+=======
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap");
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +17,11 @@ body {
   justify-content: center;
   align-items: center;
   color: #e4bb68;
+<<<<<<< HEAD
   background-image: url('./assets/Background.jpeg');
+=======
+  background-image: url("./assets/Background.jpeg");
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +55,11 @@ body {
 }
 .title,
 .title-signup {
+<<<<<<< HEAD
   font-family: 'Exo', sans-serif;
+=======
+  font-family: "Exo", sans-serif;
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   margin-top: 10px;
   flex-direction: column;
   text-align: center;
@@ -137,12 +150,19 @@ body {
 .bio-input label {
   color: rgb(193, 190, 183);
   font-size: 23px;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
 }
+<<<<<<< HEAD
 .login-input input[type='text'],
 .login-input input[type='password'],
 .register-input input[type='text'],
 .register-input input[type='password'] {
+=======
+.login-input input[type="text"],
+.login-input input[type="password"],
+.register-input input[type="text"],
+.register-input input[type="password"] {
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   width: 350px;
   height: 40px;
   border-radius: 5px;
@@ -173,10 +193,17 @@ body {
   line-height: 100px; /* Adjust to match the height */
 }
 
+<<<<<<< HEAD
 .login-input input[type='text']::placeholder,
 .login-input input[type='password']::placeholder,
 .register-input input[type='text']::placeholder,
 .register-input input[type='password']::placeholder {
+=======
+.login-input input[type="text"]::placeholder,
+.login-input input[type="password"]::placeholder,
+.register-input input[type="text"]::placeholder,
+.register-input input[type="password"]::placeholder {
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   color: #525252;
   text-indent: 5px;
   font-size: 18px;
@@ -233,7 +260,11 @@ body {
 .background-img {
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   background-image: url('./assets/Background7.jpeg');
+=======
+  background-image: url("./assets/Background7.jpeg");
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -250,7 +281,11 @@ body {
 .navBar {
   /* box-sizing: border-box; */
   display: flex;
+<<<<<<< HEAD
   font-family: 'Exo', sans-serif;
+=======
+  font-family: "Exo", sans-serif;
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   position: fixed;
   top: 0;
   left: 0;
@@ -299,8 +334,13 @@ body {
 input:focus {
   outline: none;
 }
+<<<<<<< HEAD
 input[id='search'],
 input[id='search']::placeholder {
+=======
+input[id="search"],
+input[id="search"]::placeholder {
+>>>>>>> cd0ac9ce7d86883c72ab68c1b0a62287dfa6739c
   text-align: center;
   font-size: 18px;
 }
