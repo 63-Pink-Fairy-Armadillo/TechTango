@@ -13,7 +13,7 @@ import React from "react";
 
 const LoginContainer = () => {
   const createAccount = () => {
-    window.location.href = "/signup";
+    window.location.href = "/signUp";
   };
 
   return (
@@ -24,7 +24,7 @@ const LoginContainer = () => {
           <span className="second">Tango</span>
         </span>
       </section>
-      <form className="login-form" method="POST" action="/login">
+      <form className="login-form" method="POST" action="/">
         <div className="login-input">
           <label htmlFor="username">Username: </label>
           <input
@@ -58,7 +58,7 @@ const LoginContainer = () => {
           type="submit"
           id="register-button"
           value="Create an account?"
-          action="/signup"
+          action="/signUp"
           onClick={createAccount}
         />
       </section>

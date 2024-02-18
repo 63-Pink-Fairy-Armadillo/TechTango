@@ -10,7 +10,7 @@
  */
 
 import React from "react";
-import Feed from "../containers/Feed.jsx";
+import Feed from "./Feed.jsx";
 
 const FeedDisplay = () => {
   return (
@@ -18,7 +18,7 @@ const FeedDisplay = () => {
       <div className="feedDisplay">
         <p>This is FeedDisplay</p>
         <Feed />
-        </div>
+      </div>
     </>
   );
 };

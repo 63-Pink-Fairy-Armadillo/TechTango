@@ -10,7 +10,7 @@
  */
 
 import React from "react";
-import API from "../containers/API.jsx";
+import API from "../components/API.jsx";
 import FeedDisplay from "../components/FeedDisplay.jsx";
 
 const FeedContainer = () => {
