@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
+const userController = require('./controllers/userController');
+const MONGO_URL =
+  'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/TechTango?retryWrites=true&w=majority';
+mongoose.connect(MONGO_URL);
 
 const PORT = 3000;
 
@@ -8,8 +13,34 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
-app.use(express.static(path.resolve(__dirname, '../client')));
+// testing
+app.get('/home', userController.getAllUserInformation, (req, res) =>
+  res.status(200).json({
+    // TO DO: pass back user and other users information
+    user: {},
+    // all users, need to seperate
+    otherUsers: res.locals.allUserInformations,
+  })
+);
+
+app.post('/signUp', userController.createUser, (req, res) => {
+  return res.status(200).redirect('/home');
+});
+
+app.post('/', userController.verifyUser, (req, res) => {
+  // TO DO: set log in cookie
+  return res.status(200).redirect('/home');
+});
+
+// default loading
+app.get('/bundle.js', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './../dist/bundle.js'));
+});
+app.get('/*', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './../dist/index.html'));
+});
 
 /**
  * 404 handler

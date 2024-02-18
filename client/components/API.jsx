@@ -9,13 +9,10 @@
  * ************************************
  */
 
-import React from 'react';
+import React from "react";
 
 const API = () => {
-    return (
-      <div className='api'>This is API</div>
-    );
-  }
-  
-  export default API;
-  
+  return <div className="api">This is API</div>;
+};
+
+export default API;
