@@ -11,6 +11,8 @@
 
 import React from "react";
 
+// NavBar finished?
+
 const NavBar = () => {
   return (
     <nav className="navBar">
