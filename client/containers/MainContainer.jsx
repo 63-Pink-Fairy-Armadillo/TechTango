@@ -11,7 +11,7 @@
 
 import React from 'react';
 import NavBar from "../components/NavBar.jsx";
-import FeedDisplay from "./FeedContainer.jsx";
+import FeedContainer from "./FeedContainer.jsx";
 
 const MainContainer = () => {
   return (
