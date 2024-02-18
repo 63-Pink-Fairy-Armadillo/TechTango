@@ -9,13 +9,10 @@
  * ************************************
  */
 
-import React from 'react';
+import React from "react";
 
 const Feed = () => {
-    return (
-      <div className='feed'>This is Feed</div>
-    );
-  }
-  
-  export default Feed;
-  
+  return <div className="feed">This is Feed???</div>;
+};
+
+export default Feed;

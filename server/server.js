@@ -13,24 +13,33 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static(path.resolve(__dirname, "../dist")));
 
-app.get("/bundle.js", (req, res) => {
-  // console.log("bundle request");
-  return res.status(200).sendFile(path.join(__dirname, "./../dist/bundle.js"));
-});
-app.get("/*", (req, res) => {
-  // console.log("request recieved");
-  return res.status(200).sendFile(path.join(__dirname, "./../dist/index.html"));
-});
+// testing
+app.get("/home", userController.getAllUserInformation, (req, res) =>
+  res.status(200).json({
+    // TO DO: pass back user and other users information
+    user: {},
+    // all users, need to seperate
+    otherUsers: res.locals.allUserInformations,
+  })
+);
 
 app.post("/signUp", userController.createUser, (req, res) => {
-  return res.status(200).json(res.locals.newUser);
+  return res.status(200).redirect("/home");
 });
 
 app.post("/", userController.verifyUser, (req, res) => {
-  return res.status(200).json(res.locals.user);
+  // TO DO: set log in cookie
+  return res.status(200).redirect("/home");
+});
+
+// default loading
+app.get("/bundle.js", (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, "./../dist/bundle.js"));
+});
+app.get("/*", (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, "./../dist/index.html"));
 });
 
 /**
