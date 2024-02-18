@@ -12,19 +12,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginContainer from './containers/LoginContainer.jsx';
-import Signup from './containers/SignupContainer.jsx';
+import SignupContainer from './containers/SignupContainer.jsx';
 // import MainContainer from './containers/MainContainer.jsx';
 
 {/* <Route path="/home" element={<MainContainer />} /> */}
 
-// <Route path="/signup" element={< SignupContainer />} />
+// 
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginContainer />} />
-
+        <Route path="/signup" element={< SignupContainer />} />
       </Routes>
     </Router>
   );

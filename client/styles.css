@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +10,15 @@ body {
   justify-content: center;
   align-items: center;
   color: #e4bb68;
-  background-image: url("./assets/Background3.jpeg");
+  background-image: url("./assets/Background.jpeg");
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
   margin: 0;
 }
-/* Login */
-.container {
+/* ---------- Login ----------*/
+.container, .container-signup {
+  text-align: center; /* Center the content horizontally */
   border: 3px solid rgb(41, 31, 16);
   height: 52%;
   width: 50%;
@@ -32,12 +32,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* Title */
+.container-signup {
+  height: 70%;
+}
+/* ---------- Title ---------- */
 .title span {
   font-size: 1.0em;
 }
-.title {
+.title, .title-signup {
   font-family: 'Exo', sans-serif;
   margin-top: 10px;
   flex-direction: column;
@@ -49,7 +51,12 @@ body {
   animation: fadeIn 1.5s forwards;
   opacity: 0;
   transition-timing-function: cubic-bezier(.785,0.135,0.15,0.86);
-  margin-left: 105px;
+  margin-left: 30px;
+}
+.title-signup {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 95px;
 }
 .first {
   display: inline-block;
@@ -106,24 +113,24 @@ body {
     transform: translateX(0%);
   }
 }
-
-/* Log In Form */
-.login-form {
+/* ---------- Log In Form ---------- */
+.login-form, .reigster-form {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.login-input {
+.login-input, .register-input, .bio-input {
   margin-bottom: 15px;
 }
-.login-input label {
+.login-input label, .register-input label, .bio-input label {
   color: rgb(193, 190, 183);
   font-size: 23px;
   font-family: 'Exo', sans-serif;
 }
 .login-input input[type="text"],
-.login-input input[type="password"] {
+.login-input input[type="password"],.register-input input[type="text"],
+.register-input input[type="password"]{
   width: 350px;
   height: 40px;
   border-radius: 5px;
@@ -132,13 +139,38 @@ body {
   background-color: #e5cb96;
   font-size: 22px;
 }
+.bio-input textarea{
+  width: 475px;
+  height: 100px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  background-color: #e5cb96;
+  font-size: 18px;
+}
+.bio-input label {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center the label horizontally */
+  align-items: center; /* Center the label vertically */
+  margin-bottom: 7px;
+}
+
+.bio-input textarea::placeholder {
+  text-align: center;
+  height: 100px; /* Adjust the height as needed */
+  line-height: 100px; /* Adjust to match the height */
+}
+
+
 .login-input input[type="text"]::placeholder,
-.login-input input[type="password"]::placeholder {
+.login-input input[type="password"]::placeholder, .register-input input[type="text"]::placeholder,
+.register-input input[type="password"]::placeholder {
   color: #525252;
   text-indent: 5px;
   font-size: 18px;
 }
-.login-submit {
+
+.login-submit, .register-submit {
   color: rgba(245, 245, 245, 0.882);
   font-size: 30px;
   background-color: rgb(67, 66, 63);
@@ -151,11 +183,11 @@ body {
   opacity: 0.85;
   transition: opacity 0.2s ease-out;
 }
-.login-submit:hover {
+.login-submit:hover, .register-submit:hover {
   cursor: pointer;
   opacity: 1;
 }
-.register-button {
+.register-button, .login-back {
   color: rgb(215, 201, 136);
   font-size: 20px;
   border: none;
@@ -164,22 +196,26 @@ body {
   font-weight: bold;
   opacity: 0.85;
   transition: opacity 0.2s ease-out;
-  /* flex-shrink: 1; */
   width: 200px;
   border-radius: 5px;
   background-color: #222;
   opacity: 95%;
 }
-.register {
+.register, .logback {
   text-align: center; /* Center the content horizontally */
 }
-.register:hover {
+.register:hover, .login-back:hover {
   cursor: pointer;
   opacity: 1;
 }
 
+.register-submit{
+  margin-top: 15px;
+}
 
-/* Main Page */
+
+
+/* ---------- Main Page ---------- */
 h1 {
   color: whitesmoke;
   width: 50%;

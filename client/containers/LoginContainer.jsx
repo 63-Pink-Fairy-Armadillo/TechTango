@@ -58,7 +58,7 @@ const LoginContainer = () => {
           type="submit"
           id="register-button"
           value="Create an account?"
-          action="/register"
+          action="/signup"
           onClick={createAccount}
         />
       </section>
