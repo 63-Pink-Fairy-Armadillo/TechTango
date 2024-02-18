@@ -15,14 +15,14 @@ import FeedContainer from "./FeedContainer.jsx";
 
 const MainContainer = () => {
   return (
-    <body>
+    <>
       <div className="background-img">
         <section className="container-main">
           <NavBar />
           <FeedContainer />
         </section>
       </div>
-    </body>
+    </>
   );
 };
 
