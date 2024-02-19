@@ -24,8 +24,8 @@ import MainContainer from './containers/MainContainer.jsx';
           |-- Calendar
       |-- FeedContainer
           |-- API/Joke on the left
-          |—- FeedDisplay (do the array to populate all feeds)
-              |—- Feed (name, pic, quote, #tag)
+          |-- FeedDisplay (do the array to populate all feeds)
+              |-- Feed (name, pic, quote, #tag)
  */
 
 const App = () => {

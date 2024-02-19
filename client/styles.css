@@ -17,7 +17,7 @@ body {
   background-repeat: no-repeat;
   margin: 0;
 }
-/* ---------- Containers ----------*/
+/*--------------------------------------- Containers ---------------------------------------*/
 .container,
 .container-signup {
   text-align: center; /* Center the content horizontally */
@@ -37,7 +37,7 @@ body {
 .container-signup {
   height: 70%;
 }
-/* ---------- Title ---------- */
+/*--------------------------------------- Title ---------------------------------------*/
 .title span {
   font-size: 1em;
 }
@@ -116,7 +116,7 @@ body {
     transform: translateX(0%);
   }
 }
-/* ---------- Log In Form ---------- */
+/*--------------------------------------- Log In ---------------------------------------*/
 .login-form,
 .reigster-form {
   margin-top: 30px;
@@ -176,6 +176,7 @@ body {
   text-indent: 5px;
   font-size: 18px;
 }
+/*--------------------------------------- All Buttons ---------------------------------------*/
 .login-submit,
 .register-submit {
   color: rgba(245, 245, 245, 0.882);
@@ -196,7 +197,10 @@ body {
   opacity: 1;
 }
 .register-button,
-.login-back {
+.login-back,
+.btnAPIback,
+.btnAPInext,
+.feedbtn {
   color: rgb(215, 201, 136);
   font-size: 20px;
   border: none;
@@ -211,16 +215,38 @@ body {
   opacity: 95%;
 }
 .register,
-.logback {
+.logback,
+.btnAPIback,
+.btnAPInext {
   text-align: center; /* Center the content horizontally */
 }
 .register:hover,
-.login-back:hover {
+.login-back:hover,
+.btnAPIback,
+.btnAPInext {
   cursor: pointer;
   opacity: 1;
 }
 .register-submit {
   margin-top: 15px;
+}
+/*--------------------------------------- API buttons ---------------------------------------*/
+.buttonAPI {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.btnAPIback,
+.btnAPInext {
+  font-size: 30px;
+}
+.btnAPInext {
+  color: #f5f5f5;
+}
+.btnAPIback {
+  color: rgb(196, 193, 178);
 }
 /* ---------- Main Page ---------- */
 .background-img {
@@ -241,7 +267,6 @@ body {
   margin: auto;
 }
 .navBar {
-  /* box-sizing: border-box; */
   display: flex;
   font-family: 'Exo', sans-serif;
   position: fixed;
@@ -249,7 +274,6 @@ body {
   left: 0;
   width: 100%;
   font-size: 60px;
-  /* padding: 20px 100px; */
   justify-content: space-between;
   align-items: center;
   z-index: 100;
@@ -276,7 +300,6 @@ body {
   color: rgb(215, 201, 136);
   text-shadow: 0px 0 20px #fdfdfc;
 }
-
 .bi {
   margin-right: 40px;
   color: white;
@@ -336,7 +359,7 @@ input[id='search']::placeholder {
   border: 3px solid rgb(41, 31, 16);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
-/* ---------- API ---------- */
+/*--------------------------------------- API ---------------------------------------*/
 .container-feed {
   display: grid;
   grid-template: auto / repeat(4, 1fr);
@@ -344,10 +367,52 @@ input[id='search']::placeholder {
 }
 .api {
   grid-area: api;
-  margin-top: 10px;
   color: whitesmoke;
   font-size: 30px;
+  /* paste here */
+  display: inline-block;
+  max-width: 20em;
+  position: relative;
+  margin: 0 15px 0;
 }
+.api blockquote {
+  animation: shadows 2s linear infinite alternate;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 1em;
+}
+.api blockquote cite {
+  display: block;
+  font-style: italic;
+  text-align: right;
+}
+.api blockquote cite:before {
+  content: '- ';
+}
+@keyframes shadows {
+  0% {
+    box-shadow: 0 2px 4px -2px rgb(255, 255, 255);
+    transform: scale(0.95);
+  }
+  100% {
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.25);
+    transform: scale(1);
+  }
+}
+.apiPage {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+}
+.pageBullets {
+  font-size: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 15px;
+}
+/*--------------------------------------- Feed Display ---------------------------------------*/
 .feedDisplay {
   grid-area: feed;
 }

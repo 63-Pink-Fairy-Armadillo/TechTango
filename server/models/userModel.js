@@ -1,30 +1,30 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 
 const SALT_WORK_FACTOR = 10;
 
-const personalBioSchema = new Schema({
+const linkInBioSchema = new Schema({
   name: { type: String, required: true, unique: true },
-  bio: { type: String, required: true },
+  link: { type: String, required: true },
 });
 
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   profile_pic: { type: String, required: true },
-  personal_bios: [personalBioSchema],
-  introduction: { type: String },
+  personal_bios: { type: String },
+  link_in_bio: [linkInBioSchema]
 });
 
-userSchema.pre("save", function (next) {
+userSchema.pre('save', function (next) {
   const newUser = this;
 
   // generate a salt through SALT_WORK_FACTOR
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
     if (err)
       return next({
-        log: "Express error handler caught error in userModel bcrypt.genSalt function",
+        log: 'Express error handler caught error in userModel bcrypt.genSalt function',
         status: 500,
         message: { err },
       });
@@ -33,7 +33,7 @@ userSchema.pre("save", function (next) {
     bcrypt.hash(newUser.password, salt, (err, hash) => {
       if (err)
         return next({
-          log: "Express error handler caught error in userModel bcrypt.hash function",
+          log: 'Express error handler caught error in userModel bcrypt.hash function',
           status: 500,
           message: { err },
         });
@@ -45,4 +45,4 @@ userSchema.pre("save", function (next) {
   });
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);
