@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const login = () => {
   window.location.href = '/';
@@ -6,7 +7,12 @@ const login = () => {
 
 function SignupContainer() {
   return (
-    <div className='container-signup'>
+    <motion.div
+      className='container-signup'
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      exit={{ x: 'window.innerWidth' }}
+    >
       <section className='title-signup'>
         <span className='first'>Sign</span>
         <span className='slide'>
@@ -58,7 +64,7 @@ function SignupContainer() {
           onClick={login}
         />
       </section>
-    </div>
+    </motion.div>
   );
 }
 

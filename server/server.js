@@ -25,7 +25,7 @@ app.post('/uploadImage', userController.uploadImage, (req, res) =>
 app.get('/home/users', userController.getAllUserInformation, (req, res) =>
   res.status(200).json({
     user: res.locals.user,
-    otherUsers: res.locals.otherUsers,
+    // otherUsers: res.locals.otherUsers,
   })
 );
 
