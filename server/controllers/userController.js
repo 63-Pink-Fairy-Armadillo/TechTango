@@ -38,14 +38,16 @@ userController.getAllUserInformation = async (req, res, next) => {
      * get information of all users and filter out the current user
      */
     const user_id = req.cookies.TechTango_SSID;
-    const allUserInformations = await User.find({}, { _id: 0, password: 0 });
-    for (const [index, userInformation] of allUserInformations.entries()) {
-      if (userInformation._id.toString() === user_id) {
-        res.locals.user = userInformation;
-        res.locals.otherUsers = allUserInformations.splice(index, 1);
-        return next();
-      }
-    }
+    // const allUserInformations = await User.find({}, { _id: 0, password: 0 });
+    // for (const [index, userInformation] of allUserInformations.entries()) {
+    //   if (userInformation._id.toString() === user_id) {
+    //     res.locals.user = userInformation;
+    //     res.locals.otherUsers = allUserInformations.splice(index, 1);
+    //     return next();
+    //   }
+    // }
+    res.locals.user = await User.find({}, 'username personal_bios profile_pic');
+    return next();
   } catch (err) {
     return next({
       log: 'Express error handler caught error in userController.getAllUserInformation function',

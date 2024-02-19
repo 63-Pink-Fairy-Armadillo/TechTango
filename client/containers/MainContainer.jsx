@@ -9,20 +9,24 @@
  * ************************************
  */
 
-import React from "react";
-import NavBar from "../components/NavBar.jsx";
-import FeedContainer from "./FeedContainer.jsx";
+import React from 'react';
+import { motion } from 'framer-motion';
+import NavBar from '../components/NavBar.jsx';
+import FeedContainer from './FeedContainer.jsx';
 
 const MainContainer = () => {
   return (
-    <>
-      <div className="background-img">
-        <section className="container-main">
-          <NavBar />
-          <FeedContainer />
-        </section>
-      </div>
-    </>
+    <motion.div
+      className='background-img'
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      exit={{ x: window.innerWidth }}
+    >
+      <section className='container-main'>
+        <NavBar />
+        <FeedContainer />
+      </section>
+    </motion.div>
   );
 };
 
