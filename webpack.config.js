@@ -55,12 +55,22 @@ module.exports = {
     host: 'localhost',
     port: 8080,
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, 'client'),
       publicPath: '/',
     },
     hot: true, // reload without a refresh
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
+    proxy: {
+      '/home/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      '/signUp/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
