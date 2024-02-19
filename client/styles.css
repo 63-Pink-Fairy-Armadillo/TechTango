@@ -119,6 +119,50 @@ body {
     transform: translateX(0%);
   }
 }
+/*--------------------------------------- Calendar PopUp ---------------------------------------*/
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-inner {
+  position: relative;
+  padding: 25px;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 875px;
+  background-color: rgb(10, 9, 9);
+  opacity: 0.9;
+  box-shadow: 0 5px 20px red;
+}
+.popuptitle {
+  padding-bottom: 10px;
+  font-size: 65px;
+}
+.popup-inner .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: white;
+  font-family: sans-serif, 'Cabin';
+  font-size: 25px;
+  color: rgb(72, 112, 197);
+  padding: 6px 20px;
+  border: solid 2px lighten(rgb(72, 112, 197), 30%);
+  border-radius: 5px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease-out;
+}
+.popup-inner .close-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
 /*--------------------------------------- Log In ---------------------------------------*/
 .login-form,
 .reigster-form {
@@ -181,7 +225,8 @@ body {
 }
 /*--------------------------------------- All Buttons ---------------------------------------*/
 .login-submit,
-.register-submit {
+.register-submit,
+.tagbtn {
   color: rgba(245, 245, 245, 0.882);
   font-size: 30px;
   background-color: rgb(67, 66, 63);
@@ -195,7 +240,8 @@ body {
   transition: opacity 0.2s ease-out;
 }
 .login-submit:hover,
-.register-submit:hover {
+.register-submit:hover,
+.tagbtn:hover {
   cursor: pointer;
   opacity: 1;
 }
@@ -429,48 +475,75 @@ input[id='search']::placeholder {
 /*--------------------------------------- Feed Display ---------------------------------------*/
 .feedDisplay {
   grid-area: feed;
-}
-/* ---------- Calendar PopUp ---------- */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+.feed {
+  font-family: 'Exo', sans-serif;
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  grid-template-areas: 'left right right right';
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 2px solid rgb(215, 201, 136);
+  box-shadow: 0 0 10px #dbdcbe;
+  height: 300px;
+  background-color: rgb(9, 9, 9);
+  opacity: 0.7;
+  font-size: 40px;
+  color: whitesmoke;
+}
+.feedleft {
+  grid-area: left;
+}
+.feedright {
+  grid-area: right;
+  padding-right: 40px;
+}
+.feedUsername {
+  font-family: 'Exo', sans-serif;
+  color: rgb(215, 201, 136);
+  text-shadow: 0 0 3px rgb(215, 201, 136);
+}
+.feedimg {
+  margin-top: 20px;
+  max-width: 15vw;
+  max-height: 22vh;
+  box-shadow: 0 0 10px #dbdcbe;
+}
+.feedbio {
+  height: 70%;
+}
+.feedtag {
+  height: 30%;
+}
+.feedtag {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
-.popup-inner {
-  position: relative;
-  padding: 25px;
-  width: 100%;
-  max-width: 1200px;
-  max-height: 875px;
-  background-color: rgb(10, 9, 9);
-  opacity: 0.9;
-  box-shadow: 0 5px 20px red;
+.tagbtn {
+  font-size: 20px;
+  background-color: rgb(9, 9, 9);
 }
-.popuptitle {
-  padding-bottom: 10px;
-  font-size: 65px;
+.bigtag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
 }
-.popup-inner .close-btn {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  background-color: white;
-  font-family: sans-serif, 'Cabin';
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px gold;
+  /* border: none; */
+  width: 35px;
+  height: 35px;
   font-size: 25px;
-  color: rgb(72, 112, 197);
-  padding: 6px 20px;
-  border: solid 2px lighten(rgb(72, 112, 197), 30%);
   border-radius: 5px;
-  opacity: 0.85;
-  transition: opacity 0.2s ease-out;
-}
-.popup-inner .close-btn:hover {
-  cursor: pointer;
-  opacity: 1;
+  color: #f5f5f5;
+  box-shadow: 0 0 7px #dbdcbe;
+  background-color: rgb(9, 9, 9);
 }

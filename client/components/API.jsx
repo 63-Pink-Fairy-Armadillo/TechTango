@@ -80,7 +80,7 @@ const API = () => {
         <iframe
           width='500'
           height='300'
-          src='https://www.youtube.com/embed/videoseries?si=xvY_XAWo-nZFEygd&amp;list=PLOgNKpwsBuoyPe3swA9AnHosbdg8ZenML&autoplay=1&mute=1'
+          src='https://www.youtube.com/embed/videoseries?si=xvY_XAWo-nZFEygd&amp;list=PLOgNKpwsBuoyPe3swA9AnHosbdg8ZenML&autoplay=0&mute=1'
           title='YouTube video player'
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           allowFullScreen
