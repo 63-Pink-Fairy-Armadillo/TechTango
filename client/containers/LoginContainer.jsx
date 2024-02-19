@@ -16,7 +16,6 @@ const LoginContainer = () => {
     window.location.href = "/signUp";
   };
 
-  // background-img
   return (
     <div className="container">
       <section className="title">

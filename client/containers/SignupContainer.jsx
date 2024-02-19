@@ -1,61 +1,60 @@
-import React from "react";
+import React from 'react';
 
 const login = () => {
-  window.location.href = "/";
+  window.location.href = '/';
 };
 
 function SignupContainer() {
   return (
-    <div className="container-signup">
-      <section className="title-signup">
-        <span className="first">Sign</span>
-        <span className="slide">
-          <span className="second">Up</span>
+    <div className='container-signup'>
+      <section className='title-signup'>
+        <span className='first'>Sign</span>
+        <span className='slide'>
+          <span className='second'>Up</span>
         </span>
       </section>
-      <form className="register-form" method="POST" action="/signUp">
-        <div className="register-input">
-          <label htmlFor="username">Username: </label>
+      <form className='register-form' method='POST' action='/signUp'>
+        <div className='register-input'>
+          <label htmlFor='username'>Username: </label>
           <input
-            name="username"
-            type="text"
-            id="username"
-            placeholder="Username"
+            name='username'
+            type='text'
+            id='username'
+            placeholder='Username'
             required
           />
         </div>
-        <div className="register-input">
-          <label htmlFor="password">Password: </label>
+        <div className='register-input'>
+          <label htmlFor='password'>Password: </label>
           <input
-            name="password"
-            type="password"
-            id="password"
-            placeholder="Password"
+            name='password'
+            type='password'
+            id='password'
+            placeholder='Password'
             required
           />
         </div>
-        <div className="bio-input">
-          <label htmlFor="bio">About Yourself: </label>
+        <div className='bio-input'>
+          <label htmlFor='personal_bios'>About Yourself: </label>
           <textarea
-            name="bio"
-            id="bio"
-            placeholder="Brief Introduction about you"
-            rows="3"
+            name='personal_bios'
+            id='personal_bios'
+            placeholder='Brief Introduction about you'
+            rows='3'
           />
         </div>
         <input
-          className="register-submit"
-          type="submit"
-          id="button"
-          value="Create Account"
+          className='register-submit'
+          type='submit'
+          id='button'
+          value='Create Account'
         />
       </form>
-      <section className="register">
+      <section className='register'>
         <input
-          className="login-back"
-          type="submit"
-          value="Have an account?"
-          action="/signUp"
+          className='login-back'
+          type='submit'
+          value='Have an account?'
           onClick={login}
         />
       </section>

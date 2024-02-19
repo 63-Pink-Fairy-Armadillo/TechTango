@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
 * {
   margin: 0;
   padding: 0;
 }
-
 body {
   width: 100vw;
   height: 100vh;
@@ -12,14 +11,13 @@ body {
   justify-content: center;
   align-items: center;
   color: #e4bb68;
-  background-image: url("./assets/Background.jpeg");
+  background-image: url('./assets/Background.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
 }
-
-/* ---------- Containers ----------*/
+/*--------------------------------------- Containers ---------------------------------------*/
 .container,
 .container-signup {
   text-align: center; /* Center the content horizontally */
@@ -39,14 +37,13 @@ body {
 .container-signup {
   height: 70%;
 }
-
-/* ---------- Title ---------- */
+/*--------------------------------------- Title ---------------------------------------*/
 .title span {
   font-size: 1em;
 }
 .title,
 .title-signup {
-  font-family: "Exo", sans-serif;
+  font-family: 'Exo', sans-serif;
   margin-top: 10px;
   flex-direction: column;
   text-align: center;
@@ -119,7 +116,7 @@ body {
     transform: translateX(0%);
   }
 }
-/* ---------- Log In Form ---------- */
+/*--------------------------------------- Log In ---------------------------------------*/
 .login-form,
 .reigster-form {
   margin-top: 30px;
@@ -137,12 +134,12 @@ body {
 .bio-input label {
   color: rgb(193, 190, 183);
   font-size: 23px;
-  font-family: "Exo", sans-serif;
+  font-family: 'Exo', sans-serif;
 }
-.login-input input[type="text"],
-.login-input input[type="password"],
-.register-input input[type="text"],
-.register-input input[type="password"] {
+.login-input input[type='text'],
+.login-input input[type='password'],
+.register-input input[type='text'],
+.register-input input[type='password'] {
   width: 350px;
   height: 40px;
   border-radius: 5px;
@@ -166,22 +163,20 @@ body {
   align-items: center; /* Center the label vertically */
   margin-bottom: 7px;
 }
-
 .bio-input textarea::placeholder {
   text-align: center;
   height: 100px; /* Adjust the height as needed */
   line-height: 100px; /* Adjust to match the height */
 }
-
-.login-input input[type="text"]::placeholder,
-.login-input input[type="password"]::placeholder,
-.register-input input[type="text"]::placeholder,
-.register-input input[type="password"]::placeholder {
+.login-input input[type='text']::placeholder,
+.login-input input[type='password']::placeholder,
+.register-input input[type='text']::placeholder,
+.register-input input[type='password']::placeholder {
   color: #525252;
   text-indent: 5px;
   font-size: 18px;
 }
-
+/*--------------------------------------- All Buttons ---------------------------------------*/
 .login-submit,
 .register-submit {
   color: rgba(245, 245, 245, 0.882);
@@ -202,7 +197,10 @@ body {
   opacity: 1;
 }
 .register-button,
-.login-back {
+.login-back,
+.btnAPIback,
+.btnAPInext,
+.feedbtn {
   color: rgb(215, 201, 136);
   font-size: 20px;
   border: none;
@@ -217,23 +215,44 @@ body {
   opacity: 95%;
 }
 .register,
-.logback {
+.logback,
+.btnAPIback,
+.btnAPInext {
   text-align: center; /* Center the content horizontally */
 }
 .register:hover,
-.login-back:hover {
+.login-back:hover,
+.btnAPIback,
+.btnAPInext {
   cursor: pointer;
   opacity: 1;
 }
 .register-submit {
   margin-top: 15px;
 }
-
+/*--------------------------------------- API buttons ---------------------------------------*/
+.buttonAPI {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.btnAPIback,
+.btnAPInext {
+  font-size: 30px;
+}
+.btnAPInext {
+  color: #f5f5f5;
+}
+.btnAPIback {
+  color: rgb(196, 193, 178);
+}
 /* ---------- Main Page ---------- */
 .background-img {
-  height: 100%;
-  width: 100%;
-  background-image: url("./assets/Background7.jpeg");
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./assets/Background7.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -248,21 +267,18 @@ body {
   margin: auto;
 }
 .navBar {
-  /* box-sizing: border-box; */
   display: flex;
-  font-family: "Exo", sans-serif;
+  font-family: 'Exo', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   font-size: 60px;
-  /* padding: 20px 100px; */
   justify-content: space-between;
   align-items: center;
   z-index: 100;
   margin: 20px 0 20px 25px;
 }
-
 .navRight {
   font-size: 25px;
   display: flex;
@@ -271,7 +287,6 @@ body {
   align-items: space-between;
   margin-right: 30px;
 }
-
 .calendar,
 .editProfile,
 .about,
@@ -279,11 +294,16 @@ body {
   margin: 0 15px 0;
   color: whitesmoke;
 }
+.calendar:hover,
+.editProfile:hover,
+.about:hover {
+  color: rgb(215, 201, 136);
+  text-shadow: 0px 0 20px #fdfdfc;
+}
 .bi {
   margin-right: 40px;
   color: white;
 }
-
 #search {
   margin-left: 10px;
   margin-bottom: 8px;
@@ -299,8 +319,8 @@ body {
 input:focus {
   outline: none;
 }
-input[id="search"],
-input[id="search"]::placeholder {
+input[id='search'],
+input[id='search']::placeholder {
   text-align: center;
   font-size: 18px;
 }
@@ -329,7 +349,6 @@ input[id="search"]::placeholder {
     background-position: right;
   }
 }
-
 .container-feed {
   margin-top: 80px;
   min-width: 97vw;
@@ -339,4 +358,105 @@ input[id="search"]::placeholder {
   border-radius: 10px;
   border: 3px solid rgb(41, 31, 16);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+/*--------------------------------------- API ---------------------------------------*/
+.container-feed {
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  grid-template-areas: 'api feed feed feed';
+}
+.api {
+  grid-area: api;
+  color: whitesmoke;
+  font-size: 30px;
+  /* paste here */
+  display: inline-block;
+  max-width: 20em;
+  position: relative;
+  margin: 0 15px 0;
+}
+.api blockquote {
+  animation: shadows 2s linear infinite alternate;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 1em;
+}
+.api blockquote cite {
+  display: block;
+  font-style: italic;
+  text-align: right;
+}
+.api blockquote cite:before {
+  content: '- ';
+}
+@keyframes shadows {
+  0% {
+    box-shadow: 0 2px 4px -2px rgb(255, 255, 255);
+    transform: scale(0.95);
+  }
+  100% {
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.25);
+    transform: scale(1);
+  }
+}
+.apiPage {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+}
+.pageBullets {
+  font-size: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 15px;
+}
+/*--------------------------------------- Feed Display ---------------------------------------*/
+.feedDisplay {
+  grid-area: feed;
+}
+/* ---------- Calendar PopUp ---------- */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-inner {
+  position: relative;
+  padding: 25px;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 875px;
+  background-color: rgb(10, 9, 9);
+  opacity: 0.9;
+  box-shadow: 0 5px 20px red;
+}
+.popuptitle {
+  padding-bottom: 10px;
+  font-size: 65px;
+}
+.popup-inner .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: white;
+  font-family: sans-serif, 'Cabin';
+  font-size: 25px;
+  color: rgb(72, 112, 197);
+  padding: 6px 20px;
+  border: solid 2px lighten(rgb(72, 112, 197), 30%);
+  border-radius: 5px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease-out;
+}
+.popup-inner .close-btn:hover {
+  cursor: pointer;
+  opacity: 1;
 }

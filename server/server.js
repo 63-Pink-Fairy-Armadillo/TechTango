@@ -1,10 +1,11 @@
-const express = require("express");
-const path = require("path");
-const mongoose = require("mongoose");
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
-const userController = require("./controllers/userController");
+const userController = require('./controllers/userController');
 const MONGO_URL =
-  "mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/TechTango?retryWrites=true&w=majority";
+  'mongodb+srv://justin:a1357924689@cluster0.se1vl.mongodb.net/TechTango?retryWrites=true&w=majority';
 mongoose.connect(MONGO_URL);
 
 const PORT = 3000;
@@ -13,47 +14,62 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, "../dist")));
+app.use(cookieParser());
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
-// testing
-app.get("/home", userController.getAllUserInformation, (req, res) =>
+// testing upload image
+app.post('/uploadImage', userController.uploadImage, (req, res) =>
+  res.status(200).json({ result: 'Image upload success' })
+);
+
+app.get('/home/users', userController.getAllUserInformation, (req, res) =>
   res.status(200).json({
-    // TO DO: pass back user and other users information
-    user: {},
-    // all users, need to seperate
-    otherUsers: res.locals.allUserInformations,
+    user: res.locals.user,
+    otherUsers: res.locals.otherUsers,
   })
 );
 
-app.post("/signUp", userController.createUser, (req, res) => {
-  return res.status(200).redirect("/home");
+app.get('/home', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './../dist/index.html'));
 });
 
-app.post("/", userController.verifyUser, (req, res) => {
+app.post('/signUp', userController.createUser, (req, res) => {
+  console.log('signup hit!');
+  return res.status(200).redirect('/home');
+});
+
+app.post('/', userController.verifyUser, (req, res) => {
   // TO DO: set log in cookie
-  return res.status(200).redirect("/home");
+  return res.status(200).redirect('/home');
 });
 
 // default loading
-app.get("/bundle.js", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "./../dist/bundle.js"));
+app.get('/bundle.js', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './../dist/bundle.js'));
 });
-app.get("/*", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "./../dist/index.html"));
+app.get('/*', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './../dist/index.html'));
 });
 
 /**
  * 404 handler
  */
-app.use("*", (req, res) => {
-  res.status(404).send("Not Found");
+app.use('*', (req, res) => {
+  res.status(404).send('Not Found');
 });
 
 /**
  * Global error handler
  */
 app.use((err, req, res, next) => {
-  res.status(500).send({ error: err });
+  const defaultObj = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errObj = Object.assign({}, defaultObj, err);
+  console.log(errObj.log);
+  return res.status(errObj.status).json(errObj.message);
 });
 
 app.listen(PORT, () => {
