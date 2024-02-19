@@ -35,7 +35,7 @@ body {
   transform: translate(-50%, -50%);
 }
 .container-signup {
-  height: 70%;
+  height: 58%;
 }
 /*--------------------------------------- Title ---------------------------------------*/
 .title span {
@@ -48,13 +48,16 @@ body {
   flex-direction: column;
   text-align: center;
   text-transform: uppercase;
-  font-size: 90px;
+  font-size: 120px;
   letter-spacing: 1px;
   display: inline-block;
   animation: fadeIn 1.5s forwards;
   opacity: 0;
   transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
   margin-left: 30px;
+}
+.title {
+  margin-top: 50px;
 }
 .title-signup {
   margin-bottom: 15px;
@@ -214,18 +217,23 @@ body {
   background-color: #222;
   opacity: 95%;
 }
-.register,
+.register-button,
 .logback,
 .btnAPIback,
 .btnAPInext {
   text-align: center; /* Center the content horizontally */
 }
-.register:hover,
+.register-button:hover,
 .login-back:hover,
-.btnAPIback,
-.btnAPInext {
+.btnAPIback:hover,
+.btnAPInext:hover {
   cursor: pointer;
   opacity: 1;
+  text-shadow: 0 0 1px #e7e7cc;
+}
+.btnAPIback:hover,
+.btnAPInext:hover {
+  text-shadow: 0 0 3px #e7e7cc;
 }
 .register-submit {
   margin-top: 15px;
@@ -366,6 +374,7 @@ input[id='search']::placeholder {
   grid-template-areas: 'api feed feed feed';
 }
 .api {
+  position: fixed;
   grid-area: api;
   color: whitesmoke;
   font-size: 30px;
@@ -380,6 +389,7 @@ input[id='search']::placeholder {
   display: inline-block;
   margin-top: 10px;
   padding: 1em;
+  min-height: 150px;
 }
 .api blockquote cite {
   display: block;
@@ -411,6 +421,10 @@ input[id='search']::placeholder {
   align-items: center;
   justify-content: center;
   max-width: 15px;
+}
+.iframe {
+  margin: 20px 10px 20px;
+  box-shadow: 0 0 10px #dbdcbe;
 }
 /*--------------------------------------- Feed Display ---------------------------------------*/
 .feedDisplay {

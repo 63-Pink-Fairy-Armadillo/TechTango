@@ -20,7 +20,6 @@ const API = () => {
   /* Fetch API on load */
   useEffect(() => {
     fetchData();
-    console.log('index first load is ', index);
   }, []);
   /*--------------------------------------- Fetch API Function ---------------------------------------*/
   const url = 'https://alien-pickup-line.p.rapidapi.com/alien_pickup_line';
@@ -77,28 +76,37 @@ const API = () => {
 
   return (
     <div className='api'>
+      <section className='iframe'>
+        <iframe
+          width='500'
+          height='300'
+          src='https://www.youtube.com/embed/videoseries?si=xvY_XAWo-nZFEygd&amp;list=PLOgNKpwsBuoyPe3swA9AnHosbdg8ZenML&autoplay=1&mute=1'
+          title='YouTube video player'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allowFullScreen
+        ></iframe>
+      </section>
       <blockquote>
         <p>{text}</p>
-        <hr />
         <cite>Tech-Tango</cite>
+        <section className='apiPage'>
+          <div className='pageBullets'>
+            {line.map((el, i) => (
+              <p id={`bullet${i}`} style={{ color: 'red' }} key={i}>
+                .
+              </p>
+            ))}
+          </div>
+        </section>
+        <section className='buttonAPI'>
+          <button className='btnAPIback' onClick={backClick}>
+            Back
+          </button>
+          <button className='btnAPInext' onClick={nextClick}>
+            Next
+          </button>
+        </section>
       </blockquote>
-      <div className='apiPage'>
-        <div className='pageBullets'>
-          {line.map((el, i) => (
-            <p id={`bullet${i}`} style={{ color: 'red' }} key={i}>
-              .
-            </p>
-          ))}
-        </div>
-      </div>
-      <div className='buttonAPI'>
-        <button className='btnAPIback' onClick={backClick}>
-          Back
-        </button>
-        <button className='btnAPInext' onClick={nextClick}>
-          Next
-        </button>
-      </div>
     </div>
   );
 };

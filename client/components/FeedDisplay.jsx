@@ -95,7 +95,6 @@ const FeedDisplay = () => {
   return (
     <>
       <div className='feedDisplay'>
-        <p>This is FeedDisplay</p>
         <p>User Information: {JSON.stringify(userInformation)}</p>
         <p>Other Users Information: {JSON.stringify(othersInformation)}</p>
 
