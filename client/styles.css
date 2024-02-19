@@ -533,12 +533,12 @@ input[id='search']::placeholder {
   align-items: center;
   margin-right: 10px;
 }
-.value {
+.value,
+.value-clicked {
   display: flex;
   align-items: center;
   justify-content: center;
   border: solid 2px gold;
-  /* border: none; */
   width: 35px;
   height: 35px;
   font-size: 25px;
@@ -546,4 +546,9 @@ input[id='search']::placeholder {
   color: #f5f5f5;
   box-shadow: 0 0 7px #dbdcbe;
   background-color: rgb(9, 9, 9);
+}
+
+.value-clicked {
+  filter: brightness(3);
+  border: solid 2px gold;
 }
