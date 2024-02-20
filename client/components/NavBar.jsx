@@ -12,18 +12,23 @@
 import React from 'react';
 import Calendar from './Calendar.jsx';
 import EditProfile from './EditProfile.jsx';
+import About from './About.jsx';
 import { useState } from 'react';
-
-// useState to toggle calendar
+import { motion } from 'framer-motion';
 
 const NavBar = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [profilePopup, setProfilePopup] = useState(false);
+  const [aboutPopup, setAboutPopup] = useState(false);
 
   return (
-    <nav className='navBar'>
+    <motion.nav
+      className='navBar'
+      initial={{ opacity: 0, translateX: 50 }}
+      animate={{ opacity: 1, translateX: 0 }}
+      transition={{ duration: 0.3, delay: 0.4 }}
+    >
       <div className='gold'>Tech Tango</div>
-
       <nav className='navRight'>
         <p className='calendar' onClick={() => setButtonPopup(true)}>
           Calendar
@@ -31,7 +36,9 @@ const NavBar = () => {
         <p className='editProfile' onClick={() => setProfilePopup(true)}>
           Edit Profile
         </p>
-        <p className='about'>About</p>
+        <p className='about' onClick={() => setAboutPopup(true)}>
+          About
+        </p>
         <input type='text' name='search' id='search' placeholder='Search' />
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -49,7 +56,8 @@ const NavBar = () => {
         trigger={profilePopup}
         setTrigger={setProfilePopup}
       ></EditProfile>
-    </nav>
+      <About trigger={aboutPopup} setTrigger={setAboutPopup}></About>
+    </motion.nav>
   );
 };
 

@@ -132,22 +132,27 @@ body {
   align-items: center;
 }
 .popup-inner,
-.popup-innerProfile {
+.popup-innerProfile,
+.popup-about {
   position: relative;
   padding: 25px;
   width: 100%;
   max-width: 1200px;
   max-height: 875px;
   background-color: rgb(10, 9, 9);
-  opacity: 0.9;
+  opacity: 0.95;
   box-shadow: 0 5px 20px rgb(238, 238, 194);
+}
+.popup-about {
+  opacity: 1;
 }
 .popuptitle {
   padding-bottom: 10px;
   font-size: 65px;
 }
 .popup-inner .close-btn,
-.popup-innerProfile .close-btn {
+.popup-innerProfile .close-btn,
+.popup-about .close-btn {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -158,7 +163,6 @@ body {
   padding: 6px 20px;
   border: solid 2px lighten(rgb(72, 112, 197), 30%);
   border-radius: 5px;
-  opacity: 0.85;
   transition: opacity 0.2s ease-out;
 }
 .popup-inner .close-btn:hover {
@@ -224,6 +228,35 @@ body {
 
 .savebiocontainer:hover {
   filter: brightness(1.7);
+}
+/*--------------------------------------- About Page ---------------------------------------*/
+
+.item {
+  min-height: 40rem;
+  width: 1500px;
+  padding: 20px;
+}
+.item img {
+  width: 350px;
+  height: 350px;
+  box-shadow: 0 0 10px #e4bb68;
+  margin: 10px 0 10px;
+}
+.item p {
+  font-size: 45px;
+}
+.inner-carousel {
+  display: flex;
+  color: whitesmoke;
+}
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+  width: 70vw;
+}
+#role {
+  font-size: 25px;
+  color: rgb(238, 238, 194);
 }
 
 /*--------------------------------------- Log In ---------------------------------------*/
@@ -386,7 +419,7 @@ body {
 .background-img {
   width: 100vw;
   height: 100vh;
-  background-image: url('./assets/Background7.jpeg');
+  background-image: url('./assets/background7.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

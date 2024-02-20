@@ -81,11 +81,7 @@ const Feed = ({ userInformation }) => {
   return (
     <div className='feed' ref={scope}>
       <div className='feedleft'>
-        <img
-          className='feedimg'
-          src='./assets/profile-pic.jpeg'
-          alt='Profile'
-        />
+        <img className='feedimg' src='/images/profile-pic.jpeg' alt='Profile' />
         <p className='feedUsername'>{username}</p>
       </div>
       <div className='feedright'>

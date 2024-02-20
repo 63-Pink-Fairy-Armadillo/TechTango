@@ -10,6 +10,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const EditProfile = (props) => {
   /*--------------------------------------- React Hooks ---------------------------------------*/
@@ -51,7 +52,12 @@ const EditProfile = (props) => {
   };
 
   return props.trigger ? ( // if trigger true popup!
-    <div className='popup'>
+    <motion.div
+      className='popup'
+      initial={{ opacity: 0, translateY: 50 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ duration: 0.3, delay: 0.3 }}
+    >
       <div className='popup-innerProfile'>
         <h2 className='popuptitle'>Edit Your Profile</h2>
         <hr />
@@ -60,7 +66,7 @@ const EditProfile = (props) => {
           <div className='editleft'>
             <img
               className='feedimg-edit'
-              src='./assets/profile-pic.jpeg'
+              src='images/profile-pic.jpeg'
               alt='Profile'
             />
             <p className='editUsername'>{username}</p>
@@ -92,7 +98,7 @@ const EditProfile = (props) => {
           Close
         </button>
       </div>
-    </div>
+    </motion.div>
   ) : (
     '' // else return nothing
   );
