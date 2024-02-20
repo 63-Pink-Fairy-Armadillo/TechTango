@@ -34,9 +34,6 @@ userController.editProfile = async (req, res, next) => {
   }
 };
 
-/*
- * getEditUser- get information of all users from database
- */
 userController.getEditUser = async (req, res, next) => {
   try {
     /*
@@ -49,6 +46,24 @@ userController.getEditUser = async (req, res, next) => {
   } catch (err) {
     return next({
       log: 'Express error handler caught error in userController.getEditUser function',
+      status: 500,
+      message: { err },
+    });
+  }
+};
+
+userController.searchUser = async (req, res, next) => {
+  try {
+    /*
+     * declare variable for user_id
+     * get information of all users and filter out the current user
+     */
+    const username = req.params.search;
+    res.locals.user = await User.find({ username });
+    return next();
+  } catch (err) {
+    return next({
+      log: 'Express error handler caught error in userController.searchUser function',
       status: 500,
       message: { err },
     });
@@ -89,9 +104,7 @@ userController.createUser = async (req, res, next) => {
   const link_in_bio = req.body.link_in_bio || [];
   const hashtag = req.body.hashtag || { tag1: 1, tag2: 1, tag3: 1 };
   // "[{name: 'Github', bio : 'https://github...'}, {}, {}]"
-  // '[]'
 
-  // if format is incorrect return error
   if (!username || !password) {
     return next({
       log: 'Express error handler caught error in userController.createUser creating user function',
@@ -141,7 +154,6 @@ userController.verifyUser = async (req, res, next) => {
    * search user document for user with same username
    */
   const { username, password } = req.body;
-
   if (!username || !password) {
     return next({
       log: 'Express error handler caught error in userController.verifyUser verifying user function',
@@ -156,7 +168,6 @@ userController.verifyUser = async (req, res, next) => {
        */
       const user = await User.findOne({ username });
       if (!user) return res.redirect('/signup');
-
       // check if plaintext password matches encrypted password
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err)
@@ -165,7 +176,6 @@ userController.verifyUser = async (req, res, next) => {
             status: 500,
             message: { err },
           });
-
         /*
          * if passwords match, save user id into cookie
          * else, return 'Not_Found'

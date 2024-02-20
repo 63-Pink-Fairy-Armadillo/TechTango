@@ -83,8 +83,8 @@ const Feed = ({ userInformation }) => {
       <div className='feedleft'>
         <img
           className='feedimg'
-          src='./assets/profile-pic.jpeg'
-          alt='Profile'
+          src={`/images/${username}.png`}
+          alt={username}
         />
         <p className='feedUsername'>{username}</p>
       </div>
