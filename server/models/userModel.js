@@ -14,7 +14,12 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   profile_pic: { type: String, required: true },
   personal_bios: { type: String },
-  link_in_bio: [linkInBioSchema]
+  link_in_bio: [linkInBioSchema],
+  hashtag: {
+    tag1: {type: Number, default: 1},
+    tag2: {type: Number, default: 1},
+    tag3: {type: Number, default: 1},
+  }
 });
 
 userSchema.pre('save', function (next) {

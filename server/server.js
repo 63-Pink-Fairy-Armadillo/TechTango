@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const userController = require('./controllers/userController');
 const MONGO_URL =
@@ -15,11 +16,22 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
-// testing upload image
-app.post('/uploadImage', userController.uploadImage, (req, res) =>
-  res.status(200).json({ result: 'Image upload success' })
+app.patch('/home/editTags', userController.editTags, (req, res) =>
+  res.status(200).send('edit tags success')
+)
+
+app.patch('/home/editProfile', userController.editProfile, (req, res) =>
+  res.status(200).send('edit profile success')
+)
+
+// test edit user
+app.get('/home/getuser', userController.getEditUser, (req, res) =>
+  res.status(200).json({
+    user: res.locals.user,
+  })
 );
 
 app.get('/home/users', userController.getAllUserInformation, (req, res) =>
