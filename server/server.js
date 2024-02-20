@@ -21,13 +21,12 @@ app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.patch('/home/editTags', userController.editTags, (req, res) =>
   res.status(200).send('edit tags success')
-)
+);
 
 app.patch('/home/editProfile', userController.editProfile, (req, res) =>
   res.status(200).send('edit profile success')
-)
+);
 
-// test edit user
 app.get('/home/getuser', userController.getEditUser, (req, res) =>
   res.status(200).json({
     user: res.locals.user,
@@ -37,7 +36,6 @@ app.get('/home/getuser', userController.getEditUser, (req, res) =>
 app.get('/home/users', userController.getAllUserInformation, (req, res) =>
   res.status(200).json({
     user: res.locals.user,
-    // otherUsers: res.locals.otherUsers,
   })
 );
 
@@ -46,7 +44,6 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/signUp', userController.createUser, (req, res) => {
-  console.log('signup hit!');
   return res.status(200).redirect('/home');
 });
 

@@ -7,21 +7,21 @@ userController.editTags = async (req, res, next) => {
   try {
     const tags = req.body.tags;
     const name = req.body.name;
-    await User.findOneAndUpdate({username: name}, { hashtag: tags });
+    await User.findOneAndUpdate({ username: name }, { hashtag: tags });
     return next();
   } catch (err) {
     return next({
-      log: 'Express error handler caught error in userController.editProfile function',
+      log: 'Express error handler caught error in userController.editTags function',
       status: 500,
       message: { err },
     });
   }
-}
+};
 
 userController.editProfile = async (req, res, next) => {
   try {
     const id = req.cookies.TechTango_SSID;
-    const personal_bios = req.body;
+    const personal_bios = req.body.newbio;
     await User.findByIdAndUpdate(id, { personal_bios });
     res.locals.newBio = personal_bios;
     return next();
@@ -34,6 +34,9 @@ userController.editProfile = async (req, res, next) => {
   }
 };
 
+/*
+ * getEditUser- get information of all users from database
+ */
 userController.getEditUser = async (req, res, next) => {
   try {
     /*
@@ -57,7 +60,11 @@ userController.getEditUser = async (req, res, next) => {
  */
 userController.getAllUserInformation = async (req, res, next) => {
   try {
-    res.locals.user = await User.find({}, 'username personal_bios profile_pic');
+    const user_id = req.cookies.TechTango_SSID;
+    res.locals.user = await User.find(
+      {},
+      'username personal_bios profile_pic hashtag'
+    );
     return next();
   } catch (err) {
     return next({
@@ -80,7 +87,7 @@ userController.createUser = async (req, res, next) => {
   const profile_pic = req.body.profile_pic || 'default';
   const personal_bios = req.body.personal_bios;
   const link_in_bio = req.body.link_in_bio || [];
-  const hashtag = req.body.hashtag || {tag1: 1, tag2: 1, tag3: 1};
+  const hashtag = req.body.hashtag || { tag1: 1, tag2: 1, tag3: 1 };
   // "[{name: 'Github', bio : 'https://github...'}, {}, {}]"
   // '[]'
 
@@ -104,7 +111,7 @@ userController.createUser = async (req, res, next) => {
       profile_pic,
       personal_bios,
       link_in_bio,
-      hashtag
+      hashtag,
     });
     // userSchema.markModified('hashtag');
     await newUser.save();

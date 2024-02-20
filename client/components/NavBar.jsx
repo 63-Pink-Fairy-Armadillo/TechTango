@@ -11,12 +11,14 @@
 
 import React from 'react';
 import Calendar from './Calendar.jsx';
+import EditProfile from './EditProfile.jsx';
 import { useState } from 'react';
 
 // useState to toggle calendar
 
 const NavBar = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [profilePopup, setProfilePopup] = useState(false);
 
   return (
     <nav className='navBar'>
@@ -26,7 +28,9 @@ const NavBar = () => {
         <p className='calendar' onClick={() => setButtonPopup(true)}>
           Calendar
         </p>
-        <p className='editProfile'>Edit Profile</p>
+        <p className='editProfile' onClick={() => setProfilePopup(true)}>
+          Edit Profile
+        </p>
         <p className='about'>About</p>
         <input type='text' name='search' id='search' placeholder='Search' />
         <svg
@@ -41,6 +45,10 @@ const NavBar = () => {
         </svg>
       </nav>
       <Calendar trigger={buttonPopup} setTrigger={setButtonPopup}></Calendar>
+      <EditProfile
+        trigger={profilePopup}
+        setTrigger={setProfilePopup}
+      ></EditProfile>
     </nav>
   );
 };
