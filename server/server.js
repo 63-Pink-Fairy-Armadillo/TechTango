@@ -17,12 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
-// testing upload image
-app.post('/uploadImage', userController.uploadImage, (req, res) =>
-  res.status(200).json({ result: 'Image upload success' })
+app.patch('/home/editTags', userController.editTags, (req, res) =>
+  res.status(200).send('edit tags success')
 );
 
-// test edit user
+app.patch('/home/editProfile', userController.editProfile, (req, res) =>
+  res.status(200).send('edit profile success')
+);
+
 app.get('/home/getuser', userController.getEditUser, (req, res) =>
   res.status(200).json({
     user: res.locals.user,
@@ -40,7 +42,6 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/signUp', userController.createUser, (req, res) => {
-  console.log('signup hit!');
   return res.status(200).redirect('/home');
 });
 

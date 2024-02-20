@@ -30,8 +30,7 @@ const EditProfile = (props) => {
     }
   };
   const saveBio = () => {
-    const body = document.getElementById('new_bio').value;
-    console.log('body after click is ', body);
+    const body = { newbio: document.getElementById('new_bio').value };
     /**
      * "whatever we save" = req.body
      */
@@ -42,12 +41,13 @@ const EditProfile = (props) => {
       },
       body: JSON.stringify(body),
     })
-      .then((res) => res.json())
       .then((data) => {
-        // Got response from server
-        alert(data);
+        console.log(data);
+        // Close the tab
+        props.setTrigger(false);
+        window.location.reload();
       })
-      .catch((err) => console.log('savebio fetch ERROR: ', err));
+      .catch((err) => console.log('fetch editProfile PATCH ERROR: ', err));
   };
 
   return props.trigger ? ( // if trigger true popup!

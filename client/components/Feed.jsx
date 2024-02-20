@@ -40,9 +40,8 @@ const Feed = ({ userInformation }) => {
       const updatedClicks = [...clicks];
       updatedClicks[index] = true;
       setClicks(updatedClicks);
-      const updatedValues = [...userInformation];
-      updatedValues[index]++;
-      setValues(updatedValues);
+      hashtag[`tag${index + 1}`]++;
+
       await animate(`#tag${index}`, { y: -25 });
       await animate(`#tag${index}`, { y: 0 });
       await animate(`#tag${index}`, { opacity: 0.5 });
@@ -51,14 +50,32 @@ const Feed = ({ userInformation }) => {
       const updatedClicks = [...clicks];
       updatedClicks[index] = false;
       setClicks(updatedClicks);
-      const updatedValues = [...userInformation];
-      updatedValues[index]--;
-      setValues(updatedValues);
+      hashtag[`tag${index + 1}`]--;
+
       await animate(`#tag${index}`, { y: 20 });
       await animate(`#tag${index}`, { y: 0 });
       await animate(`#tag${index}`, { opacity: 0.5 });
       await animate(`#tag${index}`, { opacity: 1 });
     }
+
+    // Fetch Patch to update database
+    const body = {
+      tags: hashtag,
+      name: username,
+    };
+
+    fetch('/home/editTags', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((data) => {
+        // Got response from server
+        console.log(data);
+      })
+      .catch((err) => console.log('fetch editTags PATCH ERROR: ', err));
   };
 
   return (
