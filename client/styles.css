@@ -131,7 +131,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-.popup-inner {
+.popup-inner,
+.popup-innerProfile {
   position: relative;
   padding: 25px;
   width: 100%;
@@ -139,13 +140,14 @@ body {
   max-height: 875px;
   background-color: rgb(10, 9, 9);
   opacity: 0.9;
-  box-shadow: 0 5px 20px red;
+  box-shadow: 0 5px 20px rgb(238, 238, 194);
 }
 .popuptitle {
   padding-bottom: 10px;
   font-size: 65px;
 }
-.popup-inner .close-btn {
+.popup-inner .close-btn,
+.popup-innerProfile .close-btn {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -162,6 +164,10 @@ body {
 .popup-inner .close-btn:hover {
   cursor: pointer;
   opacity: 1;
+}
+/*--------------------------------------- Edit Profile PopUp ---------------------------------------*/
+.popup-innerProfile {
+  height: 80vh;
 }
 /*--------------------------------------- Log In ---------------------------------------*/
 .login-form,
@@ -424,11 +430,11 @@ input[id='search']::placeholder {
   grid-area: api;
   color: whitesmoke;
   font-size: 30px;
-  /* paste here */
   display: inline-block;
   max-width: 20em;
   position: relative;
   margin: 0 15px 0;
+  border-radius: 10px;
 }
 .api blockquote {
   animation: shadows 2s linear infinite alternate;
@@ -492,6 +498,7 @@ input[id='search']::placeholder {
   opacity: 0.7;
   font-size: 40px;
   color: whitesmoke;
+  border-radius: 5px;
 }
 .feedleft {
   grid-area: left;
@@ -510,6 +517,7 @@ input[id='search']::placeholder {
   max-width: 15vw;
   max-height: 22vh;
   box-shadow: 0 0 10px #dbdcbe;
+  border-radius: 5px;
 }
 .feedbio {
   height: 70%;

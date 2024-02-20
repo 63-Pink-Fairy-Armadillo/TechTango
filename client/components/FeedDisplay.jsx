@@ -12,6 +12,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Feed from './Feed.jsx';
+import { motion } from 'framer-motion';
 
 const FeedDisplay = () => {
   /*--------------------------------------- React Hooks ---------------------------------------*/
@@ -99,10 +100,16 @@ const FeedDisplay = () => {
   return (
     <>
       <div className='feedDisplay'>
-        {userInformation.map((el, i) => {
-          console.log('each el is ', el);
-          return <Feed userInformation={el} key={i} />;
-        })}
+        {userInformation.map((el, i) => (
+          <motion.div
+            initial={{ opacity: 0, translateX: -50 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.3 }}
+            key={i}
+          >
+            <Feed userInformation={el} key={i} />
+          </motion.div>
+        ))}
       </div>
     </>
   );

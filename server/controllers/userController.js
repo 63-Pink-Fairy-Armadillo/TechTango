@@ -29,6 +29,27 @@ userController.uploadImage = async (req, res, next) => {
 };
 
 /*
+ * getEditUser- get information of all users from database
+ */
+userController.getEditUser = async (req, res, next) => {
+  try {
+    /*
+     * declare variable for user_id
+     * get information of all users and filter out the current user
+     */
+    const id = req.cookies.TechTango_SSID;
+    res.locals.user = await User.findById(id);
+    return next();
+  } catch (err) {
+    return next({
+      log: 'Express error handler caught error in userController.getEditUser function',
+      status: 500,
+      message: { err },
+    });
+  }
+};
+
+/*
  * getAllUserInformation - get information of all users from database
  */
 userController.getAllUserInformation = async (req, res, next) => {

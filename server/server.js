@@ -22,6 +22,14 @@ app.post('/uploadImage', userController.uploadImage, (req, res) =>
   res.status(200).json({ result: 'Image upload success' })
 );
 
+// test edit user
+app.get('/home/getuser', userController.getEditUser, (req, res) =>
+  res.status(200).json({
+    user: res.locals.user,
+    // otherUsers: res.locals.otherUsers,
+  })
+);
+
 app.get('/home/users', userController.getAllUserInformation, (req, res) =>
   res.status(200).json({
     user: res.locals.user,

@@ -36,7 +36,7 @@ const Feed = ({ userInformation }) => {
   const [scope, animate] = useAnimate();
 
   /*--------------------------------------- Feed Function ---------------------------------------*/
-  const valueClick = (index) => {
+  const valueClick = async (index) => {
     // Toggle clicks and update values
     if (!clicks[index]) {
       const updatedClicks = [...clicks];
@@ -47,7 +47,10 @@ const Feed = ({ userInformation }) => {
       updatedValues[index]++;
       setValues(updatedValues);
 
-      animate();
+      await animate(`#tag${index}`, { y: -25 });
+      await animate(`#tag${index}`, { y: 0 });
+      await animate(`#tag${index}`, { opacity: 0.5 });
+      await animate(`#tag${index}`, { opacity: 1 });
     } else {
       const updatedClicks = [...clicks];
       updatedClicks[index] = false;
@@ -56,6 +59,10 @@ const Feed = ({ userInformation }) => {
       const updatedValues = [...values];
       updatedValues[index]--;
       setValues(updatedValues);
+      await animate(`#tag${index}`, { y: 20 });
+      await animate(`#tag${index}`, { y: 0 });
+      await animate(`#tag${index}`, { opacity: 0.5 });
+      await animate(`#tag${index}`, { opacity: 1 });
     }
   };
 
@@ -79,6 +86,7 @@ const Feed = ({ userInformation }) => {
             <div className='bigtag' key={i}>
               <button className='tagbtn'>{tag}</button>
               <button
+                id={`tag${i}`}
                 className={clicks[i] ? 'value-clicked' : 'value'}
                 onClick={() => valueClick(i)}
               >
