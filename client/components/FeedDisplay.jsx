@@ -29,8 +29,6 @@ const FeedDisplay = () => {
       const result = await response.json();
       /* result is: [{ user: current user information }] */
       setUserInformation(result.user);
-
-      // setOthersInformation(result.otherUsers);
     } catch (error) {
       console.error('Error fetching user information:', error);
     }

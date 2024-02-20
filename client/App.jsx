@@ -22,6 +22,7 @@ import AnimatedRoutes from './components/AnimatedRoutes.jsx';
           |-- NavBar
               |-- Calendar
               |-- EditProfile
+              |-- About
           |-- FeedContainer
               |-- API/Joke on the left
               |-- FeedDisplay (do the array to populate all feeds)

@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const API = () => {
   /*--------------------------------------- React hooks ---------------------------------------*/
@@ -75,7 +76,12 @@ const API = () => {
   }
 
   return (
-    <div className='api'>
+    <motion.div
+      className='api'
+      initial={{ opacity: 0, translateY: 50 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ duration: 0.3, delay: 0.7 }}
+    >
       <section className='iframe'>
         <iframe
           width='500'
@@ -107,7 +113,7 @@ const API = () => {
           </button>
         </section>
       </blockquote>
-    </div>
+    </motion.div>
   );
 };
 

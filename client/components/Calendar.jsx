@@ -10,10 +10,16 @@
  */
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Calendar = (props) => {
   return props.trigger ? ( // if trigger true popup!
-    <div className='popup'>
+    <motion.div
+      className='popup'
+      initial={{ opacity: 0, translateY: 50 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ duration: 0.3, delay: 0.3 }}
+    >
       <div className='popup-inner'>
         <h2 className='popuptitle'>Your Cohort Schedule</h2>
         <iframe
@@ -29,7 +35,7 @@ const Calendar = (props) => {
         </button>
         {props.children}
       </div>
-    </div>
+    </motion.div>
   ) : (
     '' // else return nothing
   );
