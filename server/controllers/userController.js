@@ -3,31 +3,6 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const userController = {};
 
-// testing upload image
-userController.uploadImage = async (req, res, next) => {
-  console.log('upload image start');
-  const { image } = req.body;
-  console.log(image);
-  if (!image || image.size >= 16 * 1024 * 1024) {
-    return res.status(400).json({ error: 'Invalid image size' });
-  }
-  try {
-    const imageSchema = new mongoose.Schema({
-      image: { type: String, required: true },
-    });
-    const TestModel = mongoose.model('Test', imageSchema);
-    await TestModelsave({ image: req.body.image });
-    console.log('upload image finish');
-    return next();
-  } catch (err) {
-    return next({
-      log: 'Express error handler caught error in userController.uploadImage function',
-      status: 500,
-      message: { err },
-    });
-  }
-};
-
 /*
  * getEditUser- get information of all users from database
  */
@@ -54,20 +29,11 @@ userController.getEditUser = async (req, res, next) => {
  */
 userController.getAllUserInformation = async (req, res, next) => {
   try {
-    /*
-     * declare variable for user_id
-     * get information of all users and filter out the current user
-     */
     const user_id = req.cookies.TechTango_SSID;
-    // const allUserInformations = await User.find({}, { _id: 0, password: 0 });
-    // for (const [index, userInformation] of allUserInformations.entries()) {
-    //   if (userInformation._id.toString() === user_id) {
-    //     res.locals.user = userInformation;
-    //     res.locals.otherUsers = allUserInformations.splice(index, 1);
-    //     return next();
-    //   }
-    // }
-    res.locals.user = await User.find({}, 'username personal_bios profile_pic');
+    res.locals.user = await User.find(
+      {},
+      'username personal_bios profile_pic hashtag'
+    );
     return next();
   } catch (err) {
     return next({

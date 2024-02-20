@@ -167,8 +167,65 @@ body {
 }
 /*--------------------------------------- Edit Profile PopUp ---------------------------------------*/
 .popup-innerProfile {
-  height: 80vh;
+  height: 75%;
+  width: 90vw;
+  opacity: 1;
 }
+.editcontainer {
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  grid-template-areas: 'profile bio bio bio';
+  margin-top: 20px;
+  height: 75%;
+}
+.editleft {
+  grid-area: profile;
+  font-size: 40px;
+}
+.feedimg-edit {
+  max-width: 30vw;
+  max-height: 40vh;
+}
+.editright {
+  grid-area: bio;
+  font-size: 30px;
+}
+.editbio,
+.bioEdit {
+  height: 50%;
+}
+.bioEdit {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.oldbio {
+  display: flex;
+  justify-content: flex-start;
+  color: whitesmoke;
+}
+.savebio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 150px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 2px solid rgb(238, 238, 194);
+  background-color: rgb(81, 80, 80);
+  color: whitesmoke;
+}
+.savebiocontainer {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
+
+.savebiocontainer:hover {
+  filter: brightness(1.7);
+}
+
 /*--------------------------------------- Log In ---------------------------------------*/
 .login-form,
 .reigster-form {
@@ -193,7 +250,7 @@ body {
 .login-input input[type='password'],
 .register-input input[type='text'],
 .register-input input[type='password'] {
-  width: 350px;
+  width: 360px;
   height: 40px;
   border-radius: 5px;
   border: 2px solid #000;
@@ -201,13 +258,23 @@ body {
   background-color: #e5cb96;
   font-size: 22px;
 }
-.bio-input textarea {
+#password {
+  margin-left: 11px;
+}
+.bio-input textarea,
+.bioEdit textarea {
   width: 475px;
   height: 100px;
   border-radius: 5px;
   border: 2px solid #000;
   background-color: #e5cb96;
   font-size: 18px;
+  opacity: 85%;
+}
+.bioEdit textarea {
+  width: 52vw;
+  height: 22vh;
+  font-size: 25px;
 }
 .bio-input label {
   margin-top: 20px;
@@ -216,7 +283,8 @@ body {
   align-items: center; /* Center the label vertically */
   margin-bottom: 7px;
 }
-.bio-input textarea::placeholder {
+.bio-input textarea::placeholder,
+.bioEdit textarea::placeholder {
   text-align: center;
   height: 100px; /* Adjust the height as needed */
   line-height: 100px; /* Adjust to match the height */
@@ -244,6 +312,12 @@ body {
   margin-bottom: 15px;
   opacity: 0.85;
   transition: opacity 0.2s ease-out;
+}
+.tagbtn {
+  filter: brightness(1.2);
+}
+.tagbtn:hover {
+  filter: brightness(1.7);
 }
 .login-submit:hover,
 .register-submit:hover,
@@ -308,7 +382,7 @@ body {
 .btnAPIback {
   color: rgb(196, 193, 178);
 }
-/* ---------- Main Page ---------- */
+/*--------------------------------------- Main Page ---------------------------------------*/
 .background-img {
   width: 100vw;
   height: 100vh;
@@ -418,13 +492,12 @@ input[id='search']::placeholder {
   border-radius: 10px;
   border: 3px solid rgb(41, 31, 16);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-/*--------------------------------------- API ---------------------------------------*/
-.container-feed {
   display: grid;
   grid-template: auto / repeat(4, 1fr);
   grid-template-areas: 'api feed feed feed';
+  filter: brightness(1.4);
 }
+/*--------------------------------------- API ---------------------------------------*/
 .api {
   position: fixed;
   grid-area: api;
@@ -509,10 +582,11 @@ input[id='search']::placeholder {
 }
 .feedUsername {
   font-family: 'Exo', sans-serif;
-  color: rgb(215, 201, 136);
-  text-shadow: 0 0 3px rgb(215, 201, 136);
+  color: #edc77c;
+  font-weight: 500;
 }
-.feedimg {
+.feedimg,
+.feedimg-edit {
   margin-top: 20px;
   max-width: 15vw;
   max-height: 22vh;
@@ -521,6 +595,10 @@ input[id='search']::placeholder {
 }
 .feedbio {
   height: 70%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
+  margin-top: 15px;
 }
 .feedtag {
   height: 30%;
@@ -555,7 +633,6 @@ input[id='search']::placeholder {
   box-shadow: 0 0 7px #dbdcbe;
   background-color: rgb(9, 9, 9);
 }
-
 .value-clicked {
   filter: brightness(3);
   border: solid 2px gold;
