@@ -66,7 +66,7 @@ const EditProfile = (props) => {
           <div className='editleft'>
             <img
               className='feedimg-edit'
-              src='images/profile-pic.jpeg'
+              src={`images/${username}.png`}
               alt='Profile'
             />
             <p className='editUsername'>{username}</p>

@@ -40,6 +40,11 @@ app.get('/home/users', userController.getAllUserInformation, (req, res) =>
     user: res.locals.user,
   })
 );
+app.get('/home/:search', userController.searchUser, (req, res) =>
+  res.status(200).json({
+    user: res.locals.user,
+  })
+);
 app.get('/home', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, './../dist/index.html'));
 });
