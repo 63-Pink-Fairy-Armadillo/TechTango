@@ -8,7 +8,9 @@ Scratch Project By Quan Nguyen, Justin Lin, Stan Louie and Jacob McFarland
 **Solution:** An engineering team social media app to connect new peers to old peers, increasing team dynamics, teamwork, and productivity.
 
 # Tech Stack
-Client: React, React-Router, Framer-Motion, JavaScript
-Server: Node, Express
-Database: MongoDB
+**Client**: React, React-Router, Framer-Motion, JavaScript
+
+**Server**: Node, Express
+
+**Database**: MongoDB
 
